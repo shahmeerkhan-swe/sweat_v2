@@ -26,6 +26,8 @@ import ModuleTypeFilter from './ModuleFilters/TypeFilter/TypeFilter';
 import { ModuleDocument } from '../../../types/admin/CreateModule';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { set } from 'date-fns';
+import { Spinner } from '@chakra-ui/spinner'; 
 
 const baseURL = import.meta.env.VITE_API_BASE_URL + 'settings/editing-status/';
 
@@ -39,13 +41,21 @@ function ProgrammeDesigner() {
   );
   const [moduleInstances, setModuleInstances] = useState<ModuleInstance[]>([]);
   const [editingStatus, setEditingStatus] = useState<boolean>(false);
+  const [loading, setLoading] = useState(true);
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetchData(setProgrammeState, setSearchResults, setModuleInstances);
-    fetchEditingStatus();
-  }, []);
+    const fetchDataAndStatus = async () => {
+      setLoading(true);
+      await Promise.all([
+        fetchData(setProgrammeState, setSearchResults, setModuleInstances),
+        fetchEditingStatus(),
+      ]);
+      setLoading(false);
+    };
+    fetchDataAndStatus();
+  }, []); 
 
   const fetchEditingStatus = async () => {
     try {
@@ -66,6 +76,13 @@ function ProgrammeDesigner() {
 
   return (
     <>
+
+     {loading ? (
+      <div className='loading-container'>
+        <Spinner size="x1" color="blue.500" />
+        <p>Loading modules...</p>
+      </div>
+     ) : (
       <div className="programme-designer">
         {/* Disclaimer Section */}
         {!editingStatus && (
@@ -268,7 +285,8 @@ function ProgrammeDesigner() {
           )}
         </div>
       </div>
-    </>
+    )}
+    </> // Add a closing tag for the fragment element.
   );
 }
 

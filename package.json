@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@chakra-ui/spinner": "^2.1.0"
+  }
+}
