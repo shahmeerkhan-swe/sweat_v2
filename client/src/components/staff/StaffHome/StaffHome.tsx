@@ -121,11 +121,11 @@ const StaffHome = () => {
             </div>
             <div className="linkContainer">
               <Link to="/coursework-calendar">
-                Coursework Calendar (for testing)
+                Coursework Calendar
               </Link>
             </div>
             <div className="linkContainer">
-              <Link to="/admin/programme-design">Programme Design</Link>
+              <Link to="/admin/programme-design">My Modules</Link>
             </div>
             <div className="linkContainer">
               <Link to="/academic-event-calendar">Academic Event Calendar</Link>
