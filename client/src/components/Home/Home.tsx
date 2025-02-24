@@ -4,11 +4,13 @@ import './branding.css';
 import logo from '../Branding/logo.png';
 import uniLogo from '../Branding/uniLogo.png';
 import BetaBadge from '../Branding/BetaBadge';
+import FeedbackButton from '../Feedback/FeedbackButton';
 
 const Home = () => {
   return (
     <div className="home">
       <BetaBadge />
+      <FeedbackButton />
       <div className="branding-container">
         <img src={uniLogo} alt="University Logo" className="uniLogo" />
         <img src={logo} alt="Logo" className="logo" />
