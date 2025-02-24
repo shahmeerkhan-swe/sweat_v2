@@ -7,6 +7,7 @@ import { fetchFilteredModules } from '../../../utils/student/StudentView';
 import { ModuleDocument } from '../../../types/admin/CreateModule';
 import axios from 'axios';
 import BetaBadge from '../../Branding/BetaBadge';
+import FeedbackButton from '../../Feedback/FeedbackButton';
 
 const baseURL = import.meta.env.VITE_API_BASE_URL + 'calendar/';
 
@@ -249,6 +250,7 @@ const StudentView: React.FC = () => {
         </Box>
       </Flex>
       <BetaBadge />
+      <FeedbackButton />
     </Box>
   );
 };

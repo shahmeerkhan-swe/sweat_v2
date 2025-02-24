@@ -6,6 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 // import Branding from '../../Branding/Branding';
 import logo from '../../Branding/logo.png';
 import uniLogo from '../../Branding/uniLogo.png';
+import FeedbackButton from '../../Feedback/FeedbackButton';
 
 const StaffHome = () => {
   const staffPassword = import.meta.env.VITE_STAFF_PASSWORD;
@@ -55,8 +56,8 @@ const StaffHome = () => {
         style={{
           width: '190px',
           position: 'absolute',
-          bottom: '0',
-          left: '22px',
+          top: '0',
+          right: '15px',
         }}
       />
       <h1 className="">Staff Portal</h1>
@@ -136,6 +137,7 @@ const StaffHome = () => {
           </div>
         </>
       )}
+      <FeedbackButton />
     </div>
   );
 };

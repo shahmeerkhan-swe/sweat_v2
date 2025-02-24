@@ -27,7 +27,7 @@ import { ModuleDocument } from '../../../types/admin/CreateModule';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { set } from 'date-fns';
-import { Spinner } from '@chakra-ui/spinner'; 
+import { Spinner } from '@chakra-ui/react'; 
 
 const baseURL = import.meta.env.VITE_API_BASE_URL + 'settings/editing-status/';
 
@@ -44,6 +44,13 @@ function ProgrammeDesigner() {
   const [loading, setLoading] = useState(true);
 
   const navigate = useNavigate();
+
+  const { handleEditModule } = useModuleActions(
+    moduleInstances,
+    setModuleInstances,
+    programmeState,
+    setProgrammeState,
+  );
 
   useEffect(() => {
     const fetchDataAndStatus = async () => {
@@ -67,19 +74,18 @@ function ProgrammeDesigner() {
     }
   };
 
-  const { handleEditModule } = useModuleActions(
-    moduleInstances,
-    setModuleInstances,
-    programmeState,
-    setProgrammeState,
-  );
-
   return (
     <>
 
      {loading ? (
       <div className='loading-container'>
-        <Spinner size="x1" color="blue.500" />
+        <Spinner
+         thickness='4px'
+         size="xl" 
+         color="blue.500" 
+         emptyColor="gray.200"
+         speed='0.65s'
+         />
         <p>Loading modules...</p>
       </div>
      ) : (

@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import logo from '../../Branding/logo.png';
 import uniLogo from '../../Branding/uniLogo.png';
 import './AdminHome.css';
+import FeedbackButton from '../../Feedback/FeedbackButton';
 
 const AdminHome = () => {
   const adminPassword = import.meta.env.VITE_ADMIN_PASSWORD;
@@ -53,8 +54,8 @@ const AdminHome = () => {
         style={{
           width: '190px',
           position: 'absolute',
-          bottom: '0',
-          left: '22px',
+          top: '0',
+          right: '15px',
         }}
       />
       <h1 className="">Admin Home</h1>
@@ -123,6 +124,7 @@ const AdminHome = () => {
           </div>
         </div>
       )}
+      <FeedbackButton />
     </div>
   );
 };

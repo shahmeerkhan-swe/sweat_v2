@@ -3,6 +3,7 @@ import './StudentHome.css';
 // import Branding from '../../Branding/Branding';
 import logo from '../../Branding/logo.png';
 import uniLogo from '../../Branding/uniLogo.png';
+import FeedbackButton from '../../Feedback/FeedbackButton';
 
 const StudentHome = () => {
   return (
