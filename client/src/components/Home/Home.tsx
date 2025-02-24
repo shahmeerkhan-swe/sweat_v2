@@ -1,13 +1,14 @@
 import { Link } from 'react-router-dom';
 import './home.css';
-
 import './branding.css';
 import logo from '../Branding/logo.png';
 import uniLogo from '../Branding/uniLogo.png';
+import BetaBadge from '../Branding/BetaBadge';
 
 const Home = () => {
   return (
     <div className="home">
+      <BetaBadge />
       <div className="branding-container">
         <img src={uniLogo} alt="University Logo" className="uniLogo" />
         <img src={logo} alt="Logo" className="logo" />
@@ -42,7 +43,7 @@ const Home = () => {
           <Link to="/student">
             <img
               className="buttonImage"
-              src="https://raw.githubusercontent.com/virejdasani/sweat_v2/master/client/src/components/Home/student.png"
+              src="https://raw.githubusercontent.com/virejdasani/sweat_v2/master/client/src/components/Home/staff.png"
               alt="Student"
             />
             <p
@@ -61,7 +62,7 @@ const Home = () => {
           <Link to="/staff">
             <img
               className="buttonImage"
-              src="https://raw.githubusercontent.com/virejdasani/sweat_v2/master/client/src/components/Home/staff.png"
+              src="https://raw.githubusercontent.com/virejdasani/sweat_v2/master/client/src/components/Home/student.png"
               alt="Staff"
             />
             <p

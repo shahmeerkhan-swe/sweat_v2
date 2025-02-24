@@ -50,7 +50,7 @@ const Filters: React.FC<FiltersProps> = ({
         />
       </div>
 
-      <div style={{ flex: '1', maxWidth: '200px' }}>
+      <div style={{ display: 'inline-block', minWidth: '200px' }}>
         <label
           htmlFor="programme"
           style={{
@@ -67,7 +67,7 @@ const Filters: React.FC<FiltersProps> = ({
           options={programmeOptions}
           onChange={(e) => setProgramme(e.value)}
           placeholder="Select Programme"
-          style={{ width: '100%', fontSize: '0.875rem', padding: '0.25rem' }}
+          style={{ width: 'auto', fontSize: '0.875rem', padding: '0.25rem', minWidth: '200px' }}
           scrollHeight="500px"
           panelClassName="custom-dropdown-panel"
         />

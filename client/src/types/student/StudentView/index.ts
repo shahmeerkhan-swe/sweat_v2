@@ -15,6 +15,7 @@ export interface CourseworkCalendarProps {
   semester: 'first' | 'second' | 'whole session' | 'wholeSession';
   programme: string;
   modules: ModuleDocument[];
+  year: number;
   readingWeeks?: number[] | { sem1: number[]; sem2: number[] };
   // @ts-expect-error any type here works
   semester1Start?;

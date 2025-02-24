@@ -61,7 +61,7 @@ const StaffHome = () => {
       />
       <h1 className="">Staff Portal</h1>
       <button
-        style={{ position: 'absolute', top: '0', left: '0' }}
+        className="backButton btn btn-secondary mx-3 my-3 fixed-top col-sm-1"
         onClick={() => {
           window.location.href = '/';
         }}

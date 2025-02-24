@@ -6,6 +6,7 @@ import StudentWorkloadGraph from './WorkloadGraphs/StackedModuleGraphs/StudentWo
 import { fetchFilteredModules } from '../../../utils/student/StudentView';
 import { ModuleDocument } from '../../../types/admin/CreateModule';
 import axios from 'axios';
+import BetaBadge from '../../Branding/BetaBadge';
 
 const baseURL = import.meta.env.VITE_API_BASE_URL + 'calendar/';
 
@@ -247,6 +248,7 @@ const StudentView: React.FC = () => {
           </div>
         </Box>
       </Flex>
+      <BetaBadge />
     </Box>
   );
 };

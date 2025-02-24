@@ -1,4 +1,5 @@
 import { TableProps, ResponsiveValue } from '@chakra-ui/react';
+import { min } from 'date-fns';
 
 // Styles
 export const tableStyle: TableProps = {
@@ -17,4 +18,6 @@ export const cellStyle = {
   border: '1px solid',
   borderColor: 'gray.300',
   px: 2,
+  minWidth: '150px',
+  minHeight: '300px',
 };

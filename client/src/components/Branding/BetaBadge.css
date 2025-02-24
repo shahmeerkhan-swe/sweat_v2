@@ -1,0 +1,21 @@
+/* Beta Badge CSS */
+
+.beta-badge {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #ff5722;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 8px 16px;
+  border-radius: 20px;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+}
+
+.beta-badge:hover {
+  background-color: #e64a19;
+}

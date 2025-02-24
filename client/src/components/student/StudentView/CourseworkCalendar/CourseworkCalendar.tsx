@@ -25,6 +25,7 @@ import {
 } from './CourseworkCalendar.styles';
 import { CourseworkCalendarProps } from '../../../../types/student/StudentView';
 import axios from 'axios';
+import { programmeOptions, yearOptions } from '../../../../utils/student/StudentView/Filters';
 
 const baseURL = import.meta.env.VITE_API_BASE_URL + 'settings/editing-status/';
 
@@ -32,6 +33,7 @@ const CourseworkCalendar: React.FC<CourseworkCalendarProps> = ({
   semester,
   programme,
   modules,
+  year,
   // readingWeeks,
   semester1Start,
   semester2Start,
@@ -198,7 +200,12 @@ const CourseworkCalendar: React.FC<CourseworkCalendarProps> = ({
         {displayedModules.map((module) => (
           <Tr key={module.moduleSetup.moduleCode}>
             <Td textAlign="left" fontWeight="bold" {...cellStyle}>
-              {module.moduleSetup.moduleCode}
+              <VStack align="start" spacing={1}>
+                <Text>{module.moduleSetup.moduleCode}</Text>
+                <Text fontSize="sm" fontWeight="bold">
+                  {module.moduleSetup.moduleTitle}
+                </Text>
+              </VStack>
               <IconButton
                 aria-label="Remove module"
                 icon={<SmallCloseIcon />}
@@ -316,11 +323,16 @@ const CourseworkCalendar: React.FC<CourseworkCalendarProps> = ({
   };
 
   const renderTables = () => {
+    const programmeLabel = programmeOptions.find(option => option.value === programme)?.label || programme; // Temporary solution until I can think of something better
+    console.log("year:", year);
+    console.log("yearOptions:", yearOptions);
+    const yearLabel = yearOptions.find(option => option.value === Number(year))?.label || year;
+    console.log("yearLabel:", yearLabel);
     if (semester === 'first') {
       return (
         <>
           <Heading size="md" mb={4}>
-            First Semester - {programme}
+            First Semester - {programmeLabel} Year({yearLabel})
           </Heading>
           <Box width="100%" margin="0 auto">
             <Table {...tableStyle}>
@@ -334,7 +346,7 @@ const CourseworkCalendar: React.FC<CourseworkCalendarProps> = ({
       return (
         <>
           <Heading size="md" mb={4}>
-            Second Semester - {programme}
+            Second Semester - {programmeLabel}
           </Heading>
           <Box width="100%" margin="0 auto">
             <Table {...tableStyle}>
