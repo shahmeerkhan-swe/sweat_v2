@@ -51,19 +51,19 @@ const StudentWorkloadGraph: React.FC<StudentWorkloadGraphProps> = ({
   modules,
   semester,
 }) => {
-  const [selectedModules, setSelectedModules] = useState<
-    MultiValue<OptionType>
-  >([]);
-  const [closeMenuOnSelect, setCloseMenuOnSelect] = useState<boolean>(true);
-  const [studyStyle, setStudyStyle] = useState<string>('steady');
-  const [ratio, setRatio] = useState<string>('1');
-  const [data, setData] = useState<AggregatedData[]>([]);
-  const [lineColors, setLineColors] = useState<{ [key: string]: string }>({});
-
+  // Initialize selectedModules with all modules
   const moduleOptions: OptionType[] = modules.map((module) => ({
     label: module.moduleSetup.moduleCode,
     value: module.moduleSetup.moduleCode,
   }));
+
+  const [selectedModules, setSelectedModules] = useState<MultiValue<OptionType>>(moduleOptions);
+  const [closeMenuOnSelect, setCloseMenuOnSelect] = useState<boolean>(true);
+  // Set default values for study style and ratio
+  const [studyStyle, setStudyStyle] = useState<string>('steady');
+  const [ratio, setRatio] = useState<string>('1');
+  const [data, setData] = useState<AggregatedData[]>([]);
+  const [lineColors, setLineColors] = useState<{ [key: string]: string }>({});
 
   const selectAllOption: OptionType = { label: 'Select All', value: '*' };
 

@@ -208,6 +208,7 @@ const StudentView: React.FC = () => {
         ) : (
           <>
             <CourseworkCalendar
+              year={year}
               semester={semester}
               programme={programme}
               modules={modules}

@@ -25,7 +25,7 @@ import {
 } from './CourseworkCalendar.styles';
 import { CourseworkCalendarProps } from '../../../../types/student/StudentView';
 import axios from 'axios';
-import { programmeOptions, yearOptions } from '../../../../utils/student/StudentView/Filters';
+import { programmeOptions } from '../../../../utils/student/StudentView/Filters';
 
 const baseURL = import.meta.env.VITE_API_BASE_URL + 'settings/editing-status/';
 
@@ -40,6 +40,10 @@ const CourseworkCalendar: React.FC<CourseworkCalendarProps> = ({
   easterBreakStart,
   easterBreakEnd,
 }) => {
+  // Add debug logging at component level
+  console.log('Year prop received:', year);
+  console.log('Year type:', typeof year);
+  
   const [displayedModules, setDisplayedModules] =
     useState<ModuleDocument[]>(modules);
   const [selectedModule, setSelectedModule] = useState<string | null>(null);
@@ -323,16 +327,14 @@ const CourseworkCalendar: React.FC<CourseworkCalendarProps> = ({
   };
 
   const renderTables = () => {
-    const programmeLabel = programmeOptions.find(option => option.value === programme)?.label || programme; // Temporary solution until I can think of something better
-    console.log("year:", year);
-    console.log("yearOptions:", yearOptions);
-    const yearLabel = yearOptions.find(option => option.value === Number(year))?.label || year;
-    console.log("yearLabel:", yearLabel);
+   
+    const programmeLabel = programmeOptions.find(option => option.value === programme)?.label || programme;
+   
     if (semester === 'first') {
       return (
         <>
           <Heading size="md" mb={4}>
-            First Semester - {programmeLabel} Year({yearLabel})
+            First Semester - {programmeLabel} 
           </Heading>
           <Box width="100%" margin="0 auto">
             <Table {...tableStyle}>
@@ -346,7 +348,7 @@ const CourseworkCalendar: React.FC<CourseworkCalendarProps> = ({
       return (
         <>
           <Heading size="md" mb={4}>
-            Second Semester - {programmeLabel}
+            Second Semester - {programmeLabel} 
           </Heading>
           <Box width="100%" margin="0 auto">
             <Table {...tableStyle}>
@@ -402,4 +404,7 @@ const CourseworkCalendar: React.FC<CourseworkCalendarProps> = ({
   );
 };
 
+
+
 export default CourseworkCalendar;
+
